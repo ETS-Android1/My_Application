@@ -41,19 +41,18 @@ public class CreateAgent extends Fragment {
 
     private EditText mpassword;
     private EditText mconfirmPassword;
-    String agencyty = "";
+    private final String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.[a-z]+";
 
 
     private ImageButton closeBtn;
     private Button SignUpBtn;
-    private RadioButton mbtn;
     private RadioButton gcbtn;
 
     private ProgressBar progressBar;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firebaseFirestore;
-    private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.[a-z]+";
+    String agencyty = "Good Carrier";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -63,7 +62,7 @@ public class CreateAgent extends Fragment {
         view = inflater.inflate(R.layout.create_agent, container, false);
 
 
-        alreadyhaveAnAccount = (TextView) view.findViewById(R.id.tv_alreadyhave);
+        alreadyhaveAnAccount = view.findViewById(R.id.tv_alreadyhave);
 
         alreadyhaveAnAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,22 +70,21 @@ public class CreateAgent extends Fragment {
                 startActivity(new Intent(getContext(), MainActivity.class));
             }
         });
-        mname = (EditText) view.findViewById(R.id.sign_up_name);
-        agname = (EditText) view.findViewById(R.id.sign_up_ln);
-        mmobile = (EditText) view.findViewById(R.id.sign_up_mobile);
-        mpassword = (EditText) view.findViewById(R.id.sign_up_password);
-        memail = (EditText) view.findViewById(R.id.sign_up_email);
-        madd = (EditText) view.findViewById(R.id.sign_up_name);
-        mconfirmPassword = (EditText) view.findViewById(R.id.sign_up_cp);
-        mbtn = (RadioButton) view.findViewById(R.id.malebtn);
-        gcbtn = (RadioButton) view.findViewById(R.id.femalebtn);
+        mname = view.findViewById(R.id.sign_up_name);
+        agname = view.findViewById(R.id.sign_up_ln);
+        mmobile = view.findViewById(R.id.sign_up_mobile);
+        mpassword = view.findViewById(R.id.sign_up_password);
+        memail = view.findViewById(R.id.sign_up_email);
+        madd = view.findViewById(R.id.sign_up_add);
+        mconfirmPassword = view.findViewById(R.id.sign_up_cp);
+        gcbtn = view.findViewById(R.id.femalebtn);
 
 
-        SignUpBtn = (Button) view.findViewById(R.id.sign_up_btn);
+        SignUpBtn = view.findViewById(R.id.sign_up_btn);
 
-        progressBar = (ProgressBar) view.findViewById(R.id.sign_up_progressbar);
+        progressBar = view.findViewById(R.id.sign_up_progressbar);
 
-        firebaseAuth = firebaseAuth.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
         memail.addTextChangedListener(new TextWatcher() {
@@ -167,11 +165,7 @@ public class CreateAgent extends Fragment {
         if (!TextUtils.isEmpty(memail.getText())) {
             if (!TextUtils.isEmpty((mname.getText()))) {
                 if (!TextUtils.isEmpty(mpassword.getText()) && mpassword.length() >= 8) {
-                    if (!TextUtils.isEmpty(mconfirmPassword.getText())) {
-                        SignUpBtn.setEnabled(true);
-                    } else {
-                        SignUpBtn.setEnabled(false);
-                    }
+                    SignUpBtn.setEnabled(!TextUtils.isEmpty(mconfirmPassword.getText()));
                 } else {
                     SignUpBtn.setEnabled(false);
                 }
@@ -194,33 +188,25 @@ public class CreateAgent extends Fragment {
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                if(task.isSuccessful()){
+                                if (task.isSuccessful()) {
 
-                                    Map<Object,String > userdata = new HashMap<>();
-                                    userdata.put("name",mname.getText().toString());
-                                    userdata.put("agency_name",agname.getText().toString());
-                                    userdata.put("mobile",mmobile.getText().toString());
-                                    userdata.put("add",madd.getText().toString());
+                                    Map<Object, String> userdata = new HashMap<>();
+                                    userdata.put("name", mname.getText().toString());
+                                    userdata.put("agency_name", agname.getText().toString());
+                                    userdata.put("ag_mobile", mmobile.getText().toString());
+                                    userdata.put("agency_add", madd.getText().toString());
+                                    userdata.put("ag_email", memail.getText().toString());
 
 
-                                    if(gcbtn.isChecked()){
-                                        agencyty="Good Carriers";
-                                    }
-                                    if(mbtn.isChecked()){
-                                        agencyty="Material Supplier";
-                                    }
+                                    userdata.put("agencytype", agencyty);
 
-                                    firebaseFirestore.collection("Transporter")
-                                            .add(userdata)
-
+                                    firebaseFirestore.collection("Transporter").add(userdata)
                                             .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<DocumentReference> task) {
-
+                                                    startActivity(new Intent(getContext(), HomePage.class));
                                                 }
                                             });
-
-
                                     startActivity(new Intent(getContext(),HomePage.class));
                                 }else {
 

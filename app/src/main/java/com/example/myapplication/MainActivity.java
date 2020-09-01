@@ -1,7 +1,5 @@
 package com.example.myapplication;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,6 +11,9 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar progressBar;
 
     private FirebaseAuth firebaseAuth;
-    private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.[a-z]+";
+    private final String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.[a-z]+";
 
 
 
@@ -40,8 +41,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
-        donthaveAnAccount = (TextView) findViewById(R.id.tv_donthaveacc);
+        donthaveAnAccount = findViewById(R.id.tv_donthaveacc);
 
         donthaveAnAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        forgotpassword =(TextView)findViewById(R.id.sign_in_forgot);
+        forgotpassword = findViewById(R.id.sign_in_forgot);
 
         forgotpassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,10 +63,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        email = (EditText)findViewById(R.id.sign_in_email);
-        password = (EditText)findViewById(R.id.sign_in_password);
-        SignInBtn = (Button)findViewById(R.id.sign_in_btn);
-        progressBar = (ProgressBar)findViewById(R.id.sign_in_progressbar);
+        email = findViewById(R.id.sign_in_email);
+        password = findViewById(R.id.sign_in_password);
+        SignInBtn = findViewById(R.id.sign_in_btn);
+        progressBar = findViewById(R.id.sign_in_progressbar);
         firebaseAuth = FirebaseAuth.getInstance();
 
         email.addTextChangedListener(new TextWatcher() {
@@ -113,11 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void CheckInputs(){
         if(!TextUtils.isEmpty(email.getText())){
-            if(!TextUtils.isEmpty(password.getText())){
-                SignInBtn.setEnabled(true);
-            }else{
-                SignInBtn.setEnabled(false);
-            }
+            SignInBtn.setEnabled(!TextUtils.isEmpty(password.getText()));
         }else {
             SignInBtn.setEnabled(false);
         }

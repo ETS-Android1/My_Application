@@ -6,7 +6,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,12 +23,12 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        imageView=(ImageView)findViewById(R.id.splashimage);
-        textView=(TextView)findViewById(R.id.title);
+        imageView = findViewById(R.id.splashimage);
+        textView = findViewById(R.id.title);
 
-        Animation animationUtils=AnimationUtils.loadAnimation(getBaseContext(), R.anim.rotate);
+        Animation animationUtils = AnimationUtils.loadAnimation(getBaseContext(), R.anim.rotate);
         firebaseAuth = FirebaseAuth.getInstance();
-        firebaseUser=firebaseAuth.getCurrentUser();
+        firebaseUser = firebaseAuth.getCurrentUser();
 
         imageView.startAnimation(animationUtils);
         textView.startAnimation(animationUtils);
@@ -44,10 +43,15 @@ public class SplashScreen extends AppCompatActivity {
             public void onAnimationEnd(Animation animation) {
 
 
-                        Intent intent=new Intent(SplashScreen.this,MainActivity.class);
-                        startActivity(intent);
-                        finish();
-
+                if (firebaseUser != null) {
+                    Intent intent = new Intent(SplashScreen.this, HomePage.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
 
             @Override

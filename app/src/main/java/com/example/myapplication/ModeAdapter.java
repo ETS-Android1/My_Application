@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.recyclerview.widget.RecyclerView;
 
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -55,11 +55,11 @@ public class ModeAdapter extends RecyclerView.Adapter<ModeAdapter.MyViewHolder> 
         ArrayList<ModeTransport> list=new ArrayList<ModeTransport>();
         public MyViewHolder(View itemView,Context ctx,ArrayList<ModeTransport> list) {
             super(itemView);
-            this.list=list;
-            this.ctx=ctx;
+            this.list = list;
+            this.ctx = ctx;
             itemView.setOnClickListener(this);
-            imageView=(ImageView)itemView.findViewById(R.id.modeimage);
-            textView=(TextView)itemView.findViewById(R.id.modetext);
+            imageView = itemView.findViewById(R.id.modeimage);
+            textView = itemView.findViewById(R.id.modetext);
         }
         @Override
         public void onClick(View view) {

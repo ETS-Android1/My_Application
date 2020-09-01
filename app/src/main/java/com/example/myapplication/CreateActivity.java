@@ -24,22 +24,21 @@ public class CreateActivity extends AppCompatActivity {
 
        firebaseAuth= FirebaseAuth.getInstance();
 
-       if(firebaseAuth.getCurrentUser() != null) {
+        if (firebaseAuth.getCurrentUser() != null) {
             Toast.makeText(CreateActivity.this, "You are already signed in.", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(CreateActivity.this, HomePage.class));
-       }
+        }
 
 
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("User/Admin");
         setSupportActionBar(toolbar);
 
-        tablayout=(TabLayout)findViewById(R.id.tablayout);
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        tablayout = findViewById(R.id.tablayout);
+        mViewPager = findViewById(R.id.container);
         viewpageradapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewpageradapter.addfragment(new CreateUser(),"User");
-        viewpageradapter.addfragment(new CreateAgent(),"Agent");
+        viewpageradapter.addfragment(new CreateUser(), "User");
+        viewpageradapter.addfragment(new CreateAgent(), "Agent");
         mViewPager.setAdapter(viewpageradapter);
         tablayout.setupWithViewPager(mViewPager);
     }

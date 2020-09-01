@@ -47,9 +47,9 @@ public class GridAdapter extends BaseAdapter {
 
         View itemView = inflater.inflate(R.layout.grid_item, parent, false);
         // Locate the TextViews in listview_item.xml
-        gridtext = (TextView) itemView.findViewById(R.id.grid_textView);
+        gridtext = itemView.findViewById(R.id.grid_textView);
         // Locate the ImageView in listview_item.xml
-        gridimage = (ImageView) itemView.findViewById(R.id.grid_imageView);
+        gridimage = itemView.findViewById(R.id.grid_imageView);
         // Capture position and set to the TextViews
         gridtext.setText(Version[position]);
         // Capture position and set to the ImageView

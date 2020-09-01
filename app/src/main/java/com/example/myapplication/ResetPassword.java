@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -23,9 +22,9 @@ public class ResetPassword extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reset_password);
 
-        edtEmail = (EditText) findViewById(R.id.ForgotPassword);
-        btnResetPassword = (Button) findViewById(R.id.Resetbutton);
-        btnBack = (TextView) findViewById(R.id.Forgot_goback);
+        edtEmail = findViewById(R.id.ForgotPassword);
+        btnResetPassword = findViewById(R.id.Resetbutton);
+        btnBack = findViewById(R.id.Forgot_goback);
 
 
         btnResetPassword.setOnClickListener(new View.OnClickListener() {

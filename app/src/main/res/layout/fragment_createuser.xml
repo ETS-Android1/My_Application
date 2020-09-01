@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
 
     <LinearLayout
@@ -53,6 +50,23 @@
                 android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="356dp"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginTop="5dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                ems="10"
+                android:id="@+id/sign_up_mobile"
+                android:layout_width="356dp"
+                android:layout_height="wrap_content"
+                android:hint="Mobile Number"
+                android:inputType="text"
+                android:textSize="20sp" />
+        </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="356dp"
             android:layout_height="wrap_content"
@@ -71,22 +85,6 @@
                 android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="356dp"
-            android:layout_height="wrap_content"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:layout_marginTop="5dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                ems="10"
-                android:id="@+id/sign_up_mobile"
-                android:layout_width="356dp"
-                android:layout_height="wrap_content"
-                android:hint="Mobile Number"
-                android:inputType="text"
-                android:textSize="20sp" />
-        </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="356dp"
             android:layout_height="wrap_content"

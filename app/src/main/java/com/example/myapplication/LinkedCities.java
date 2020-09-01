@@ -1,9 +1,9 @@
 package com.example.myapplication;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -41,25 +41,25 @@ public class LinkedCities extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_linked_cities);
 
-        mDrawerlayout=(DrawerLayout)findViewById(R.id.drawer);
-        Toggle=new ActionBarDrawerToggle(this , mDrawerlayout,R.string.open,R.string.close);
+        mDrawerlayout = findViewById(R.id.drawer);
+        Toggle = new ActionBarDrawerToggle(this, mDrawerlayout, R.string.open, R.string.close);
         mDrawerlayout.addDrawerListener(Toggle);
         Toggle.syncState();
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        ActionBar actionBar=getSupportActionBar();
+        ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setTitle("HomePage");
 
-        listView=(ListView)findViewById(R.id.citylistview);
-        arrayAdapter=new ArrayAdapter<String>(this,R.layout.citylistlayout,R.id.citytext,getResources().getStringArray(R.array.cityarray));
+        listView = findViewById(R.id.citylistview);
+        arrayAdapter = new ArrayAdapter<String>(this, R.layout.citylistlayout, R.id.citytext, getResources().getStringArray(R.array.cityarray));
         listView.setAdapter(arrayAdapter);
 
     }
     @Override
     public void onBackPressed() {
-        mDrawerlayout=(DrawerLayout)findViewById(R.id.drawer);
+        mDrawerlayout = findViewById(R.id.drawer);
         if (mDrawerlayout.isDrawerOpen(GravityCompat.START)) {
             mDrawerlayout.closeDrawer(GravityCompat.START);
         } else {
@@ -162,7 +162,7 @@ public class LinkedCities extends AppCompatActivity implements NavigationView.On
             alert.setItems(phone, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    Intent intent=new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+phone[i].toString()));
+                    Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone[i]));
                     startActivity(intent);
                 }
             });
@@ -173,14 +173,14 @@ public class LinkedCities extends AppCompatActivity implements NavigationView.On
 
         } else if (id == R.id.nav_send) {
 
-            Intent intent=new Intent(Intent.ACTION_SEND);
-            intent.putExtra(intent.EXTRA_EMAIL,new String[]{"sy4306122@gmail.com"});
-            intent.putExtra(intent.EXTRA_SUBJECT,"Feedback By:");
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"sy4306122@gmail.com"});
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback By:");
             intent.setType("message/rfc822");
             startActivity(intent);
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer);
+        DrawerLayout drawer = findViewById(R.id.drawer);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

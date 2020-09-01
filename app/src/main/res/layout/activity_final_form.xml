@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FinalForm"
-    android:background="@color/background">
+    android:background="#ffffff">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/background"
         android:orientation="vertical">
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,11 +22,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/background"
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_weight="4"
                     android:scaleType="fitXY"
                     android:layout_gravity="center"
@@ -37,7 +39,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="4dp"
-                    android:text="Agent Name"
+                    android:text="Agency Name"
                     android:textAppearance="?android:textAppearanceLarge"
                     android:textStyle="bold" />
 
@@ -47,7 +49,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        app:srcCompat="@drawable/ic_location_on_black_24dp"
+                        app:srcCompat="@drawable/ic_location_on_black_24"
                         android:layout_weight="1.54"
                         android:layout_width="0dp"
                         android:layout_height="match_parent" />
@@ -62,6 +64,7 @@
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -71,6 +74,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/background"
                 android:orientation="vertical">
 
                 <TextView
@@ -83,8 +87,30 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
-                    android:background="@android:color/darker_gray" />
+                    android:background="@color/colorAccent" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Agent Name"
+                        android:textAppearance="?android:textAppearanceLarge" />
+
+                    <TextView
+                        android:id="@+id/agentname"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Amit Yadav" />
+
+                </LinearLayout>
                 <LinearLayout
                     android:paddingTop="5dp"
                     android:layout_width="match_parent"
@@ -124,7 +150,7 @@
                         />
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -146,6 +172,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/background"
                 android:orientation="vertical">
 
                 <TextView
@@ -158,12 +185,13 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
-                    android:background="@android:color/darker_gray" />
+                    android:background="@color/colorAccent" />
 
                 <LinearLayout
                     android:paddingTop="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/background"
                     android:orientation="horizontal">
 
                     <TextView
@@ -264,7 +292,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:text="Your Location"
+                        android:text="Departure"
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:textAppearance="?android:textAppearanceLarge"
@@ -311,7 +339,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:text="Booking Preference"
+                        android:text="Booking Type"
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:textAppearance="?android:textAppearanceLarge"
@@ -328,29 +356,7 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:paddingTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
 
-                    <TextView
-                        android:text="Drop/Wait"
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
-                        android:textAppearance="?android:textAppearanceLarge"
-                        android:layout_height="match_parent"
-                        />
-
-                    <TextView
-                        android:id="@+id/uservtime"
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="waittime" />
-
-                </LinearLayout>
 
             </LinearLayout>
 
@@ -360,7 +366,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            app:cardBackgroundColor="#fffde7"
+            app:cardBackgroundColor="@color/background"
             app:cardCornerRadius="8dp">
 
             <LinearLayout
@@ -378,7 +384,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="3dp"
-                    android:background="@android:color/darker_gray" />
+                    android:background="@color/colorAccent" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -620,40 +626,6 @@
 
                 </LinearLayout>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    app:cardBackgroundColor="#fffde7"
-                    app:cardCornerRadius="8dp">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="PAMPHLET"
-                        android:textAppearance="?android:textAppearanceLarge" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="3dp"
-                        android:background="@android:color/darker_gray" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:scaleType="fitXY"
-                        android:layout_gravity="center"
-                        app:srcCompat="@drawable/ic_not_interested_black_24dp"
-                        android:id="@+id/pamphlet"
-                        />
-                </LinearLayout>
-                </androidx.cardview.widget.CardView>
 
                 <View
                     android:layout_width="match_parent"
@@ -671,7 +643,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:padding="5dp"
-                        android:textColor="#FFA500"
+                        android:textColor="@color/colorAccent"
                         android:textAppearance="?android:textAppearanceLarge"
                         android:text="Per km price:"
                         android:textSize="28dp"/>
@@ -682,7 +654,7 @@
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:textColor="#FFA500"
+                        android:textColor="@color/colorAccent"
                         android:padding="5dp"
                         android:text="Not Availabel"
                         android:textSize="28dp"
@@ -708,14 +680,16 @@
         </androidx.cardview.widget.CardView>
 
         <Button
-            android:paddingTop="15dp"
-            android:id="@+id/booknow"
-            android:paddingBottom="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/myactionbarcolor"
-            android:textColor="#FFFFFF"
-            android:text="BOOK NOW" />
+            android:id="@+id/book"
+            android:layout_width="132dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/button_rounded"
+            android:text="Book Now"
+            android:textColor="#ffffff"
+            android:textSize="22sp" />
 
     </LinearLayout>
 

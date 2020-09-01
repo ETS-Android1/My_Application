@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/background"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true"
+    app:contentPadding="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ag_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_weight="4"
+                android:adjustViewBounds="true"
+                android:background="@drawable/newtravelcards"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/ag_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:autoSizeTextType="uniform"
+                android:singleLine="true"
+                android:text="Agent Contact"
+                android:textColor="@color/black"
+                android:textSize="28dp"
+                android:textStyle="italic"
+                android:typeface="serif">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/ag_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:autoSizeTextType="uniform"
+                android:singleLine="true"
+                android:text="TRAVEL AGENT NAME"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/black"
+                android:textSize="28dp"
+                android:textStyle="italic"
+                android:typeface="serif" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/locationmark"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.54"
+                android:background="@drawable/ic_location_on_black_24" />
+
+            <TextView
+                android:id="@+id/ag_address"
+                android:layout_width="359dp"
+                android:layout_height="match_parent"
+                android:layout_weight="12.49"
+                android:autoSizeTextType="uniform"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:padding="5dp"
+                android:singleLine="true"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:typeface="serif" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

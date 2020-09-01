@@ -29,8 +29,8 @@ public class RegisterTA extends AppCompatActivity {
     ImageView imgone, imgtwo, cancelone, canceltwo;
     int flag = 0;
 
-    private int IMGONE = 1;
-    private int IMGTWO = 2;
+    private final int IMGONE = 1;
+    private final int IMGTWO = 2;
 
     String imgonedwnld;
     String imgtwodwnld = "null";
@@ -48,18 +48,18 @@ public class RegisterTA extends AppCompatActivity {
         imgtwodwnld = "null";
         imgurione = null;
         imguritwo = null;
-        name = (EditText) findViewById(R.id.name);
-        location = (EditText) findViewById(R.id.location);
-        email = (EditText) findViewById(R.id.email);
-        phone = (EditText) findViewById(R.id.mobile);
-        register = (Button) findViewById(R.id.register);
-        price = (EditText) findViewById(R.id.price);
+        name = findViewById(R.id.name);
+        location = findViewById(R.id.location);
+        email = findViewById(R.id.email);
+        phone = findViewById(R.id.mobile);
+        register = findViewById(R.id.register);
+        price = findViewById(R.id.price);
 
 
-        imgone = (ImageView) findViewById(R.id.imgone);
-        imgtwo = (ImageView) findViewById(R.id.imgtwo);
-        cancelone = (ImageView) findViewById(R.id.cancelone);
-        canceltwo = (ImageView) findViewById(R.id.canceltwo);
+        imgone = findViewById(R.id.imgone);
+        imgtwo = findViewById(R.id.imgtwo);
+        cancelone = findViewById(R.id.cancelone);
+        canceltwo = findViewById(R.id.canceltwo);
 
         cancelone.setClickable(false);
         canceltwo.setClickable(false);
@@ -68,7 +68,7 @@ public class RegisterTA extends AppCompatActivity {
         imgone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent();
+                Intent i = new Intent();
                 i.setType("image/*");
                 i.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(i,"Select Picture"),IMGONE);

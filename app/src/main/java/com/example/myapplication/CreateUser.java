@@ -1,9 +1,5 @@
 package com.example.myapplication;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -19,6 +15,9 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -42,18 +41,17 @@ public class CreateUser extends Fragment {
 
     private EditText mpassword;
     private EditText mconfirmPassword;
-    String gender = "";
+    private final String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.[a-z]+";
 
 
     private ImageButton closeBtn;
     private Button SignUpBtn;
-    private RadioButton male;
     private RadioButton female;
 
     private ProgressBar progressBar;
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firebaseFirestore;
-    private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.[a-z]+";
+    String gender;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -63,7 +61,7 @@ public class CreateUser extends Fragment {
         view = inflater.inflate(R.layout.fragment_createuser, container, false);
 
 
-        alreadyhaveAnAccount = (TextView) view.findViewById(R.id.tv_alreadyhave);
+        alreadyhaveAnAccount = view.findViewById(R.id.tv_alreadyhave);
 
         alreadyhaveAnAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,22 +69,21 @@ public class CreateUser extends Fragment {
                 startActivity(new Intent(getContext(), MainActivity.class));
             }
         });
-        mname = (EditText) view.findViewById(R.id.sign_up_name);
-        mlname = (EditText) view.findViewById(R.id.sign_up_ln);
-        mmobile = (EditText) view.findViewById(R.id.sign_up_mobile);
-        mpassword = (EditText) view.findViewById(R.id.sign_up_password);
-        memail = (EditText) view.findViewById(R.id.sign_up_email);
-        madd = (EditText) view.findViewById(R.id.sign_up_name);
-        mconfirmPassword = (EditText) view.findViewById(R.id.sign_up_cp);
-        male = (RadioButton) view.findViewById(R.id.malebtn);
-        female = (RadioButton) view.findViewById(R.id.femalebtn);
+        mname = view.findViewById(R.id.sign_up_name);
+        mlname = view.findViewById(R.id.sign_up_ln);
+        mmobile = view.findViewById(R.id.sign_up_mobile);
+        mpassword = view.findViewById(R.id.sign_up_password);
+        memail = view.findViewById(R.id.sign_up_email);
+        // madd = (EditText) view.findViewById(R.id.sign_up_name);
+        mconfirmPassword = view.findViewById(R.id.sign_up_cp);
+        female = view.findViewById(R.id.femalebtn);
 
 
-        SignUpBtn = (Button) view.findViewById(R.id.sign_up_btn);
+        SignUpBtn = view.findViewById(R.id.sign_up_btn);
 
-        progressBar = (ProgressBar) view.findViewById(R.id.sign_up_progressbar);
+        progressBar = view.findViewById(R.id.sign_up_progressbar);
 
-        firebaseAuth = firebaseAuth.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
         memail.addTextChangedListener(new TextWatcher() {
@@ -167,11 +164,7 @@ public class CreateUser extends Fragment {
         if(!TextUtils.isEmpty(memail.getText())){
             if(!TextUtils.isEmpty((mname.getText()))){
                 if(!TextUtils.isEmpty(mpassword.getText()) && mpassword.length()>=8){
-                    if(!TextUtils.isEmpty(mconfirmPassword.getText())){
-                        SignUpBtn.setEnabled(true);
-                    }else{
-                        SignUpBtn.setEnabled(false);
-                    }
+                    SignUpBtn.setEnabled(!TextUtils.isEmpty(mconfirmPassword.getText()));
                 }else {
                     SignUpBtn.setEnabled(false);
                 }
@@ -194,21 +187,22 @@ public class CreateUser extends Fragment {
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                if(task.isSuccessful()){
+                                if(task.isSuccessful()) {
 
-                                    Map<Object,String > userdata = new HashMap<>();
-                                    userdata.put("firstname",mname.getText().toString());
-                                    userdata.put("lastname",mlname.getText().toString());
-                                    userdata.put("mobile",mmobile.getText().toString());
-                                    userdata.put("add",madd.getText().toString());
+                                    Map<Object, String> userdata = new HashMap<>();
+                                    userdata.put("firstname", mname.getText().toString());
+                                    userdata.put("lastname", mlname.getText().toString());
+                                    userdata.put("mobile", mmobile.getText().toString());
+                                    userdata.put("email", memail.getText().toString());
 
 
-                                    if(female.isChecked()){
-                                        gender="Female";
+                                    if (female.isChecked()) {
+                                        gender = "Female";
+                                    } else {
+                                        gender = "Male";
                                     }
-                                    if(male.isChecked()){
-                                        gender="Male";
-                                    }
+                                    userdata.put("gender", gender);
+
 
                                     firebaseFirestore.collection("USERS")
                                             .add(userdata)

@@ -93,24 +93,24 @@ public class BookingCardAdapter extends RecyclerView.Adapter<BookingCardAdapter.
             this.list = list;
             this.ctx = ctx;
 
-            bookingdate = (TextView) itemView.findViewById(R.id.bookingdate);
-            bookingid = (TextView) itemView.findViewById(R.id.bookingid);
-            passengername = (TextView) itemView.findViewById(R.id.passengername);
-            from = (TextView) itemView.findViewById(R.id.from);
-            to = (TextView) itemView.findViewById(R.id.to);
-            traveldate = (TextView) itemView.findViewById(R.id.traveldate);
-            traveltime = (TextView) itemView.findViewById(R.id.traveltime);
-            vsize = (TextView) itemView.findViewById(R.id.carsize);
-            vtype = (TextView) itemView.findViewById(R.id.cartype);
-            bookingpref = (TextView) itemView.findViewById(R.id.travelpref);
-            traveltype = (TextView) itemView.findViewById(R.id.traveltype);
-            travelagent = (TextView) itemView.findViewById(R.id.travelagentname);
-            fabPlus = (FloatingActionButton) itemView.findViewById(R.id.floatactionbutton);
-            fabloc = (FloatingActionButton) itemView.findViewById(R.id.fab_btn_loc);
-            fabcall = (FloatingActionButton) itemView.findViewById(R.id.fab_btn_call);
+            bookingdate = itemView.findViewById(R.id.bookingdate);
+            bookingid = itemView.findViewById(R.id.bookingid);
+            passengername = itemView.findViewById(R.id.passengername);
+            from = itemView.findViewById(R.id.from);
+            to = itemView.findViewById(R.id.to);
+            traveldate = itemView.findViewById(R.id.traveldate);
+            traveltime = itemView.findViewById(R.id.traveltime);
+            vsize = itemView.findViewById(R.id.carsize);
+            vtype = itemView.findViewById(R.id.cartype);
+            bookingpref = itemView.findViewById(R.id.travelpref);
+            traveltype = itemView.findViewById(R.id.traveltype);
+            travelagent = itemView.findViewById(R.id.travelagentname);
+            fabPlus = itemView.findViewById(R.id.floatactionbutton);
+            fabloc = itemView.findViewById(R.id.fab_btn_loc);
+            fabcall = itemView.findViewById(R.id.fab_btn_call);
 
-            fabcancel = (FloatingActionButton) itemView.findViewById(R.id.cancelbooking);
-            linearLayout = (LinearLayout) itemView.findViewById(R.id.linearlayoutbooking);
+            fabcancel = itemView.findViewById(R.id.cancelbooking);
+            linearLayout = itemView.findViewById(R.id.linearlayoutbooking);
 
             fabOpen = AnimationUtils.loadAnimation(ctx, R.anim.fab_open);
             fabClose = AnimationUtils.loadAnimation(ctx, R.anim.fab_close);

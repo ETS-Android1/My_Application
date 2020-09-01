@@ -9,20 +9,45 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".HomePage" android:theme="@style/AppTheme"
-            android:label="HomePage"/>
-        <activity android:name=".LinkedCities" android:theme="@style/AppTheme"
-            android:label="LinkedCities"></activity>
-        <activity android:name=".ProfilePage"  android:theme="@style/AppTheme"></activity>
-        <activity android:name=".Locale"  android:theme="@style/AppTheme"></activity>
-        <activity android:name=".Agent"  android:theme="@style/AppTheme"></activity>
-        <activity android:name=".MainActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".CreateActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".ShowBooking" android:theme="@style/AppTheme"></activity>
-        <activity android:name=".ResetPassword" android:theme="@style/AppTheme"></activity>
-        <activity android:name=".BookingConfirmation" android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".HomePage"
+            android:label="HomePage"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".LinkedCities"
+            android:label="LinkedCities"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ProfilePage"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Locale"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".FinalForm"
+            android:theme="@style/AppTheme" />
 
-        <activity android:name=".SplashScreen"
+        <activity
+            android:name=".Agent"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CreateActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ShowBooking"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ResetPassword"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".BookingConfirmation"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".SplashScreen"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

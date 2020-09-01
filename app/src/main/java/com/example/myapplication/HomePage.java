@@ -1,17 +1,13 @@
 package com.example.myapplication;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,7 +34,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layoutManager;
-    ArrayList<com.example.myapplication.ModeTransport> list=new ArrayList<com.example.myapplication.ModeTransport>();
+    ArrayList<ModeTransport> list = new ArrayList<ModeTransport>();
     TextView navname;
     TextView navemail;
     int flag=0;
@@ -61,22 +57,21 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         setContentView(R.layout.activity_home_page);
 
 
-
-        navemail = (TextView)findViewById(R.id.accountemail);
-        navname = (TextView)findViewById(R.id.accountname);
-        SignoutBtn = (TextView) findViewById(R.id.nav_logout);
+        navemail = findViewById(R.id.accountemail);
+        navname = findViewById(R.id.accountname);
+        SignoutBtn = findViewById(R.id.nav_logout);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        firebaseUser=firebaseAuth.getCurrentUser();
+        firebaseUser = firebaseAuth.getCurrentUser();
 
-        mDrawerlayout=(DrawerLayout)findViewById(R.id.drawer);
-        Toggle=new ActionBarDrawerToggle(this , mDrawerlayout,R.string.open,R.string.close);
+        mDrawerlayout = findViewById(R.id.drawer);
+        Toggle = new ActionBarDrawerToggle(this, mDrawerlayout, R.string.open, R.string.close);
         mDrawerlayout.addDrawerListener(Toggle);
         Toggle.syncState();
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        ActionBar actionBar=getSupportActionBar();
+        ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setTitle("HomePage");
 
@@ -89,18 +84,18 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
 
 
-        int count=0;
+        int count = 0;
 
-        for(String n:name){
-            ModeTransport modeTransport=new ModeTransport(image[count],n);
+        for (String n : name) {
+            ModeTransport modeTransport = new ModeTransport(image[count], n);
             list.add(modeTransport);
             count++;
         }
-        recyclerView=(RecyclerView)findViewById(R.id.recyclerview);
-        layoutManager= new LinearLayoutManager(getApplicationContext());
+        recyclerView = findViewById(R.id.recyclerview);
+        layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        adapter=new ModeAdapter(list,this);
+        adapter = new ModeAdapter(list, this);
         recyclerView.setAdapter(adapter);
 
 
@@ -109,7 +104,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
     @Override
     public void onBackPressed() {
-        mDrawerlayout=(DrawerLayout)findViewById(R.id.drawer);
+        mDrawerlayout = findViewById(R.id.drawer);
         if (mDrawerlayout.isDrawerOpen(GravityCompat.START)) {
             mDrawerlayout.closeDrawer(GravityCompat.START);
         } else {
@@ -221,7 +216,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             alert.setItems(phone, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    Intent intent=new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+phone[i].toString()));
+                    Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone[i]));
                     startActivity(intent);
                 }
             });
@@ -232,14 +227,14 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         } else if (id == R.id.nav_send) {
 
-            Intent intent=new Intent(Intent.ACTION_SEND);
-            intent.putExtra(intent.EXTRA_EMAIL,new String[]{"sy4306122@gmail.com"});
-            intent.putExtra(intent.EXTRA_SUBJECT,"Feedback By:");
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"sy4306122@gmail.com"});
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback By:");
             intent.setType("message/rfc822");
             startActivity(intent);
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer);
+        DrawerLayout drawer = findViewById(R.id.drawer);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

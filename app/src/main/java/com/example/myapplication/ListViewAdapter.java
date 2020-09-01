@@ -46,12 +46,12 @@ public class ListViewAdapter extends BaseAdapter {
         inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        View itemView = inflater.inflate(R.layout.card_layout, parent, false);
+        View itemView = inflater.inflate(R.layout.agent_card, parent, false);
 
         // Locate the TextViews in listview_item.xml
-        txtversion = (TextView) itemView.findViewById(R.id.listitem_text);
+        txtversion = itemView.findViewById(R.id.listitem_text);
         // Locate the ImageView in listview_item.xml
-        image = (ImageView) itemView.findViewById(R.id.listitem_image);
+        image = itemView.findViewById(R.id.listitem_image);
         // Capture position and set to the TextViews
         txtversion.setText(Version[position]);
         // Capture position and set to the ImageView
