@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Users">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/registeruser"
+                    android:icon="@drawable/travelagent"
+                    android:title="Profile" />
+                <item
+                    android:id="@+id/booking"
+                    android:icon="@drawable/booking"
+                    android:title="My Bookings" />
+                <item
+                    android:id="@+id/linking"
+                    android:icon="@drawable/link"
+                    android:title="Linked States and Cities" />
+
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Travel Agents">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/registertravelagent"
+                    android:icon="@drawable/travelagent"
+                    android:title="Profile" />
+
+                <item
+                    android:id="@+id/registration"
+                    android:icon="@drawable/user"
+                    android:title="Register Agency" />
+
+                <item
+                    android:id="@+id/confirmation"
+                    android:icon="@drawable/mailnav"
+                    android:title="Send Confirmation" />
+
+            </group>
+        </menu>
+    </item>
+    <item android:title="Logout">
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/logout"
+                android:title="Logout" />
+        </menu>
+    </item>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/contact"
+                android:icon="@drawable/contactnav"
+                android:title="Call Us" />
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send Us FeedBack" />
+
+        </menu>
+    </item>
+
+</menu>

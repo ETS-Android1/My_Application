@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginBottom="5dp"
+            android:background="#fffde7">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/linearlayoutbooking"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Booking Date"
+                android:textColor="#000000"
+                android:textStyle="bold|italic"
+                android:textSize="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Date"
+                android:textColor="#000000"
+                android:id="@+id/bookingdate"
+                android:textSize="15dp"/>
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="2dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="#000000"
+                    android:layout_height="wrap_content"
+                    android:text="Booking ID"
+                    android:textStyle="bold|italic"
+                    android:textSize="20dp"/>
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="id"
+                    android:id="@+id/bookingid"
+                    android:textSize="15dp"/>
+            </LinearLayout>
+</LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/droplist"></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+                <TextView
+
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Passenger Name:"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="bold|italic"
+                    android:textSize="20dp"/>
+                <TextView
+
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="name"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/passengername"
+                    android:textSize="15dp"/>
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
+            <TextView
+
+                android:textColor="#000000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="From:"
+                android:textStyle="bold|italic"
+                android:textSize="20dp"/>
+            <TextView
+
+                android:textColor="#000000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="from"
+                android:id="@+id/from"
+                android:textSize="15dp"/>
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp">
+                <TextView
+
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TO:"
+                    android:textStyle="bold|italic"
+                    android:textSize="20dp"/>
+                <TextView
+
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="to"
+                    android:id="@+id/to"
+                    android:textSize="15dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1">
+                <TextView
+
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Travel Date"
+                    android:textStyle="bold|italic"
+                    android:textSize="20dp"/>
+                <TextView
+
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="traveldate"
+                    android:id="@+id/traveldate"
+                    android:textSize="15dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
+                <TextView
+
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Travel Time"
+                    android:textStyle="bold|italic"
+                    android:textSize="20dp"/>
+                <TextView
+
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="traveltime"
+                    android:id="@+id/traveltime"
+                    android:textSize="15dp"/>
+            </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vehicle"
+                    android:textStyle="bold|italic"
+                    android:textSize="20dp"/>
+                </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/droplist"></View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1">
+                <TextView
+
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vehicle Size"
+                    android:textStyle="bold|italic"
+                    android:textSize="20dp"/>
+                <TextView
+
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="size"
+                    android:id="@+id/carsize"
+                    android:textSize="15dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="15dp">
+                <TextView
+
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vehicle Type"
+                    android:textStyle="bold|italic"
+                    android:textSize="20dp"/>
+                <TextView
+
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="cartype"
+                    android:id="@+id/cartype"
+                    android:textSize="15dp"/>
+            </LinearLayout>
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp">
+                <TextView
+
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Travel Pref."
+                    android:textStyle="bold|italic"
+                    android:textSize="20dp"/>
+                <TextView
+
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="travelpref"
+                    android:id="@+id/travelpref"
+                    android:textSize="15dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
+                <TextView
+
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Travel Type"
+                    android:textStyle="bold|italic"
+                    android:textSize="20dp"/>
+                <TextView
+
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="traveltype"
+                    android:id="@+id/traveltype"
+                    android:textSize="15dp"/>
+            </LinearLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/droplist"></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:orientation="vertical">
+                <TextView
+
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Travel Agent"
+                    android:textStyle="bold|italic"
+                    android:textSize="20dp"/>
+                <TextView
+
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="name"
+                    android:id="@+id/travelagentname"
+                    android:textSize="15dp"/>
+
+            </LinearLayout>
+                        <RelativeLayout
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_marginTop="15dp"
+                            android:gravity="center"
+                          android:layout_marginBottom="20dp">
+                          <com.google.android.material.floatingactionbutton.FloatingActionButton
+                              android:id="@+id/fab_btn_call"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:src="@drawable/phone"
+                              android:layout_marginEnd="35dp"
+                              android:elevation="6dp"
+                              app:backgroundTint="#FBC02D"
+                              app:pressedTranslationZ="12dp"
+                              android:layout_alignParentTop="true"
+                              android:layout_toStartOf="@+id/floatactionbutton"
+                              android:visibility="invisible"/>
+
+                          <com.google.android.material.floatingactionbutton.FloatingActionButton
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center"
+                          android:id="@+id/floatactionbutton"
+                          app:backgroundTint="#FBC02D"
+                          android:src="@drawable/infofloat"
+                          android:elevation="6dp"
+                          app:pressedTranslationZ="12dp"
+                          android:layout_alignParentTop="true"
+                          android:layout_centerHorizontal="true" />
+
+                          <com.google.android.material.floatingactionbutton.FloatingActionButton
+                              android:id="@+id/fab_btn_loc"
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:src="@drawable/floatlocation"
+                              app:backgroundTint="#FBC02D"
+                              android:elevation="6dp"
+                              android:layout_marginStart="35dp"
+                              app:pressedTranslationZ="12dp"
+                              android:layout_alignParentTop="true"
+                              android:layout_toEndOf="@+id/floatactionbutton"
+                              android:visibility="invisible"/>
+            </RelativeLayout>
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:id="@+id/cancelbooking"
+                app:backgroundTint="#ff1744"
+                android:src="@drawable/cancelbooking"
+                android:elevation="6dp"
+                app:pressedTranslationZ="12dp"
+                android:layout_marginBottom="5dp"
+                android:layout_alignParentTop="true" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    </ScrollView>

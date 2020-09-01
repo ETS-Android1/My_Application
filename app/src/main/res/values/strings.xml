@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">YTC</string>
+    <string name="close">Close</string>
+    <string name="open">Open</string>
+    <string name="action_settings">Settings</string>
+    <string name="enter_your_details">Enter Your Details</string>
+
+
+    <string-array name="cityarray">
+
+
+        <item>Sareni</item>
+
+        <item>Unnao</item>
+        <item>Unchahar</item>
+        <item>Khiro</item>
+        <item>Orai</item>
+        <item>Allahabad</item>
+        <item>Mahoba</item>
+        <item>Varansi</item>
+        <item>Gangaganj</item>
+        <item>Harchandpur</item>
+        <item> Sareni</item>
+        <item>Rae Bareli</item>
+        <item>Lalganj </item>
+        <item>Banda</item>
+        <item>Lucknow </item>'
+        <item>Jaggatpur</item>
+        <item>Mohan Lalganj</item>
+        <item>Maharajganj</item>
+        <item>Kanpur</item>
+        <item>Amethi</item>
+        <item>Sultanpur</item>
+        <item>Ayodhya</item>
+        <item>Faizabad</item>
+        <item>Fathepur</item>
+
+    </string-array>
+
+</resources>

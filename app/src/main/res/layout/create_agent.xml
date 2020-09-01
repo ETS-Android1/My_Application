@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+    <LinearLayout
+
+        android:background="@color/background"
+        android:orientation="vertical"
+        android:padding="30dp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="356dp"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginTop="5dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+
+                ems="10"
+                android:id="@+id/sign_up_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Full Name"
+                android:inputType="text"
+                android:textSize="20sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="356dp"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginTop="5dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+
+                ems="10"
+                android:id="@+id/sign_up_ln"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Agency Name"
+                android:inputType="text"
+                android:textSize="20sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="356dp"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginTop="5dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+
+                ems="10"
+                android:id="@+id/sign_up_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Agency Address"
+                android:inputType="text"
+                android:textSize="20sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="356dp"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginTop="5dp">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                ems="10"
+                android:id="@+id/sign_up_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Email Address"
+                android:inputType="text"
+                android:textSize="20sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="356dp"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginTop="5dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                ems="10"
+                android:id="@+id/sign_up_mobile"
+                android:layout_width="356dp"
+                android:layout_height="wrap_content"
+                android:hint="Mobile Number"
+                android:inputType="text"
+                android:textSize="20sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="356dp"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginTop="5dp"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                ems="10"
+                android:id="@+id/sign_up_password"
+                android:layout_width="356dp"
+                android:layout_height="wrap_content"
+                android:hint="Enter Password"
+                android:inputType="textPassword"
+                android:textSize="20sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="356dp"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginTop="5dp"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/sign_up_cp"
+                android:layout_height="wrap_content"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:textSize="20sp"
+                ems="10"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Agency Type: "
+                android:textSize="20sp"
+                />
+
+            <RadioButton
+                android:id="@+id/mbtn"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Material Supplier"
+                android:layout_marginLeft="10dp"
+                android:textSize="20sp"/>
+            <RadioButton
+                android:id="@+id/gcbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Good Carrier"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+
+                android:textSize="20sp"/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/sign_up_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_rounded"
+            android:text="Register"
+            android:textColor="#ffffff"
+            android:layout_marginTop="40dp"
+            android:textSize="22sp" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1700dp"
+            android:text="or"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sign_up_btn" />
+
+
+        <TextView
+            android:id="@+id/tv_alreadyhave"
+            android:layout_width="271dp"
+            android:layout_height="27dp"
+            android:text="Already have an account?Sign In!"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            android:layout_marginTop="-20dp"
+            android:layout_marginLeft="40dp" />
+
+        <ProgressBar
+            android:id="@+id/sign_up_progressbar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="67dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-200dp"
+            android:visibility="invisible"
+            android:layout_marginLeft="130dp"/>
+
+    </LinearLayout>
+
+</ScrollView>
