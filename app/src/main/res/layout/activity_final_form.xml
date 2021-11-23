@@ -535,6 +535,7 @@
 
                     <TextView
                         android:gravity="right"
+
                         android:textAppearance="?android:textAppearanceMedium"
                         android:layout_weight="1"
                         android:layout_width="0dp"

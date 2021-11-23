@@ -20,14 +20,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class CreateUser extends Fragment {
 
@@ -35,7 +39,6 @@ public class CreateUser extends Fragment {
 
     private EditText memail;
     private EditText mname;
-    private EditText mlname;
     private EditText mmobile;
     private EditText madd;
 
@@ -52,6 +55,7 @@ public class CreateUser extends Fragment {
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firebaseFirestore;
     String gender;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,20 +74,16 @@ public class CreateUser extends Fragment {
             }
         });
         mname = view.findViewById(R.id.sign_up_name);
-        mlname = view.findViewById(R.id.sign_up_ln);
         mmobile = view.findViewById(R.id.sign_up_mobile);
         mpassword = view.findViewById(R.id.sign_up_password);
         memail = view.findViewById(R.id.sign_up_email);
-        // madd = (EditText) view.findViewById(R.id.sign_up_name);
+        madd = (EditText) view.findViewById(R.id.sign_up_add);
         mconfirmPassword = view.findViewById(R.id.sign_up_cp);
-        female = view.findViewById(R.id.femalebtn);
-
-
         SignUpBtn = view.findViewById(R.id.sign_up_btn);
 
         progressBar = view.findViewById(R.id.sign_up_progressbar);
 
-        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance(); //Authentication
         firebaseFirestore = FirebaseFirestore.getInstance();
 
         memail.addTextChangedListener(new TextWatcher() {
@@ -159,78 +159,70 @@ public class CreateUser extends Fragment {
         });
         return view;
     }
-    private void CheckInputs()
-    {
-        if(!TextUtils.isEmpty(memail.getText())){
-            if(!TextUtils.isEmpty((mname.getText()))){
-                if(!TextUtils.isEmpty(mpassword.getText()) && mpassword.length()>=8){
+
+    private void CheckInputs() {
+        if (!TextUtils.isEmpty(memail.getText())) {
+            if (!TextUtils.isEmpty((mname.getText()))) {
+                if (!TextUtils.isEmpty(mpassword.getText()) && mpassword.length() >= 8) {
                     SignUpBtn.setEnabled(!TextUtils.isEmpty(mconfirmPassword.getText()));
-                }else {
+                } else {
                     SignUpBtn.setEnabled(false);
                 }
             } else {
                 SignUpBtn.setEnabled(false);
             }
-        }else {
+        } else {
             SignUpBtn.setEnabled(false);
         }
     }
 
-    private void CheckEmailAndPassword(){
-        if(memail.getText().toString().matches(emailPattern)){
-            if(mpassword.getText().toString().equals(mconfirmPassword.getText().toString())){
+    private void CheckEmailAndPassword() {
+        if (memail.getText().toString().matches(emailPattern)) {
+            if (mpassword.getText().toString().equals(mconfirmPassword.getText().toString())) {
 
                 progressBar.setVisibility(View.VISIBLE);
                 SignUpBtn.setEnabled(false);
 
-                firebaseAuth.createUserWithEmailAndPassword(memail.getText().toString(),mpassword.getText().toString())
+                firebaseAuth.createUserWithEmailAndPassword(memail.getText().toString(), mpassword.getText().toString())
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                if(task.isSuccessful()) {
-
+                                if (task.isSuccessful()) {
                                     Map<Object, String> userdata = new HashMap<>();
-                                    userdata.put("firstname", mname.getText().toString());
-                                    userdata.put("lastname", mlname.getText().toString());
-                                    userdata.put("mobile", mmobile.getText().toString());
-                                    userdata.put("email", memail.getText().toString());
+                                    userdata.put("username", mname.getText().toString());
+                                    userdata.put("usermobile", mmobile.getText().toString());
+                                    userdata.put("useremail", memail.getText().toString());
+                                    userdata.put("useradd", madd.getText().toString());
 
 
-                                    if (female.isChecked()) {
+                                   /* if (female.isChecked()) {
                                         gender = "Female";
                                     } else {
                                         gender = "Male";
                                     }
                                     userdata.put("gender", gender);
+                                    */
+                                   firebaseFirestore.collection("USERS").document(Objects.requireNonNull(firebaseAuth.getUid())).set(userdata)
 
-
-                                    firebaseFirestore.collection("USERS")
-                                            .add(userdata)
-
-                                            .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
-                                                public void onComplete(@NonNull Task<DocumentReference> task) {
+                                                public void onSuccess(Void aVoid) {
+                                                    startActivity(new Intent(getContext(), HomePage.class));
 
                                                 }
                                             });
-
-
-                                    startActivity(new Intent(getContext(),HomePage.class));
-                                }else {
+                                } else {
                                     progressBar.setVisibility(View.INVISIBLE);
                                     SignUpBtn.setEnabled(true);
                                     Toast.makeText(getContext(), "Could not registered.Please try again..", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
-
-
-            }else {
+            } else {
                 mconfirmPassword.setError("Password doesn't Match!!");
             }
-        }else {
+        } else {
             memail.setError("Invalid email!!");
         }
     }
 }
-

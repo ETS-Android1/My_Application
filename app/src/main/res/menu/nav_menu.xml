@@ -2,8 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="Users">
+
         <menu>
-            <group android:checkableBehavior="single">
+
+            <group android:checkableBehavior="single"
+                android:id="@+id/User"
+                android:visible="true">
                 <item
                     android:id="@+id/registeruser"
                     android:icon="@drawable/travelagent"
@@ -23,7 +27,9 @@
 
     <item android:title="Travel Agents">
         <menu>
-            <group android:checkableBehavior="single">
+            <group android:checkableBehavior="single"
+                android:visible="false"
+                android:id="@+id/Agent">
                 <item
                     android:id="@+id/registertravelagent"
                     android:icon="@drawable/travelagent"

@@ -70,7 +70,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="355dp"
                 android:ems="10"
-                android:text=" My Order"
+                android:text=" My Booking"
                 android:textSize="25sp" />
 
             <TextView
@@ -80,7 +80,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="410dp"
                 android:ems="10"
-                android:text=" Uplaod Design"
+                android:text=" Near By"
                 android:textSize="25sp" />
 
             <Button
@@ -93,7 +93,7 @@
                 android:layout_marginTop="500dp"
                 android:layout_marginEnd="140dp"
                 android:text="LogOut"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
         </RelativeLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

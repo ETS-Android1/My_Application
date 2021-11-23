@@ -45,7 +45,9 @@
         <activity
             android:name=".BookingConfirmation"
             android:theme="@style/AppTheme" />
-
+        <activity
+            android:name=".Profile_Update"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SplashScreen"
             android:theme="@style/AppTheme.NoActionBar">

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,14 +21,20 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.core.Tag;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
+
+import static android.content.ContentValues.TAG;
 
 public class CreateAgent extends Fragment {
 
@@ -77,7 +84,7 @@ public class CreateAgent extends Fragment {
         memail = view.findViewById(R.id.sign_up_email);
         madd = view.findViewById(R.id.sign_up_add);
         mconfirmPassword = view.findViewById(R.id.sign_up_cp);
-        gcbtn = view.findViewById(R.id.femalebtn);
+        gcbtn = view.findViewById(R.id.gcbtn);
 
 
         SignUpBtn = view.findViewById(R.id.sign_up_btn);
@@ -191,20 +198,26 @@ public class CreateAgent extends Fragment {
                                 if (task.isSuccessful()) {
 
                                     Map<Object, String> userdata = new HashMap<>();
-                                    userdata.put("name", mname.getText().toString());
+                                    userdata.put("agent_name", mname.getText().toString());
                                     userdata.put("agency_name", agname.getText().toString());
                                     userdata.put("ag_mobile", mmobile.getText().toString());
                                     userdata.put("agency_add", madd.getText().toString());
                                     userdata.put("ag_email", memail.getText().toString());
-
-
+                                    if (gcbtn.isChecked()) {
+                                        agencyty = "Good Carrier";
+                                    } else {
+                                        agencyty = "Material Supplier";
+                                    }
                                     userdata.put("agencytype", agencyty);
 
-                                    firebaseFirestore.collection("Transporter").add(userdata)
-                                            .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+
+                                    firebaseFirestore.collection("AGENTS").document(Objects.requireNonNull(firebaseAuth.getUid())).set(userdata)
+
+                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
-                                                public void onComplete(@NonNull Task<DocumentReference> task) {
+                                                public void onSuccess(Void aVoid) {
                                                     startActivity(new Intent(getContext(), HomePage.class));
+
                                                 }
                                             });
                                     startActivity(new Intent(getContext(),HomePage.class));

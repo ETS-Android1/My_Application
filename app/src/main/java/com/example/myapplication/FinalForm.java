@@ -3,18 +3,33 @@ package com.example.myapplication;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
 public class FinalForm extends AppCompatActivity {
 
-    TextView ag_names, ag_location, ag_contact, ag_email, userfrom, userto, username,
+    TextView ag_names,tag_names, ag_location, ag_contact, ag_email, userfrom, userto, username,
             useraddress, usercontact, useremail, pref, drop, date, time, vtype, vsize, price;
 
     // static Firebase firebase;
@@ -25,6 +40,9 @@ public class FinalForm extends AppCompatActivity {
     ImageView shop;
     String priceentered;
     String imgoneurl, imgtwourl;
+
+    private FirebaseAuth firebaseAuth;
+    private FirebaseFirestore firebaseFirestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +55,13 @@ public class FinalForm extends AppCompatActivity {
         actionBar.setTitle("Confirm Booking");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        firebaseAuth = FirebaseAuth.getInstance(); //Authentication
+        firebaseFirestore = FirebaseFirestore.getInstance();
 
         booknow = findViewById(R.id.book);
         ag_email = findViewById(R.id.travelemail);
         ag_names = findViewById(R.id.travelagentname);
+        tag_names=findViewById(R.id.agentname);
         ag_location = findViewById(R.id.travellocation);
         ag_contact = findViewById(R.id.travlecontact);
         username = findViewById(R.id.username);
@@ -105,10 +126,46 @@ public class FinalForm extends AppCompatActivity {
                 pd.setCancelable(false);
                 pd.show();
 
-                //              currentdate = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-//                bookingid = uid.substring(2, 8) + System.currentTimeMillis() / 10000;
+                currentdate = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+              //  bookingid = uid.substring(2, 8) + System.currentTimeMillis() / 10000;
+                bookingid = String.valueOf((int) (Math.random() * Math.pow(8, 10)));
 
 
+                Map<Object, String> userdata = new HashMap<>();
+                userdata.put("bookingid", bookingid);
+                // user info
+                userdata.put("username", username.getText().toString());
+                userdata.put("usermobile", usercontact.getText().toString());
+                userdata.put("useremail", useremail.getText().toString());
+                userdata.put("useradd", useraddress.getText().toString());
+                // agency info
+                userdata.put("tag_name", tag_names.getText().toString());
+                userdata.put("ag_name", ag_names.getText().toString());
+                userdata.put("ag_mobile", ag_contact.getText().toString());
+                userdata.put("ag_email", ag_email.getText().toString());
+                userdata.put("ag_add", ag_location.getText().toString());
+
+                //booking info
+                userdata.put("dep_add", userfrom.getText().toString());
+                userdata.put("des_add", userto.getText().toString());
+                userdata.put("booking_type", pref.getText().toString());
+                userdata.put("booking_date", date.getText().toString());
+                userdata.put("booking_time", time.getText().toString());
+                userdata.put("vehi_type", vtype.getText().toString());
+                userdata.put("vehi_size", vsize.getText().toString());
+
+
+                firebaseFirestore.collection("Booking_Information").document(Objects.requireNonNull(firebaseAuth.getUid()))
+                        .set(userdata)
+
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Intent intent=new Intent(FinalForm.this,HomePage.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        });
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -117,11 +174,6 @@ public class FinalForm extends AppCompatActivity {
                 ProgressDialog pd = new ProgressDialog(FinalForm.this);
                 pd.setMessage("Cancelling...");
                 pd.setCancelable(false);
-                pd.show();
-
-                //  currentdate = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-                //bookingid = uid.substring(2, 8) + System.currentTimeMillis() / 10000;
-
 
             }
         });

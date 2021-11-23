@@ -27,28 +27,12 @@
                 android:id="@+id/sign_up_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="First Name"
+                android:hint="Full Name"
                 android:inputType="text"
                 android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="356dp"
-            android:layout_height="wrap_content"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:layout_marginTop="5dp">
 
-            <com.google.android.material.textfield.TextInputEditText
-
-                ems="10"
-                android:id="@+id/sign_up_ln"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Last Name"
-                android:inputType="text"
-                android:textSize="20sp" />
-        </com.google.android.material.textfield.TextInputLayout>
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -67,6 +51,7 @@
                 android:inputType="text"
                 android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="356dp"
             android:layout_height="wrap_content"
@@ -74,13 +59,28 @@
             android:focusableInTouchMode="true"
             android:layout_marginTop="5dp">
 
+            <com.google.android.material.textfield.TextInputEditText
+                ems="10"
+                android:id="@+id/sign_up_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Address"
+                android:inputType="text"
+                android:textSize="20sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="356dp"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginTop="5dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 ems="10"
                 android:id="@+id/sign_up_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter Email Address"
+                android:hint="Email Address"
                 android:inputType="text"
                 android:textSize="20sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -120,34 +120,6 @@
                 android:textSize="20sp"
                 ems="10"/>
         </com.google.android.material.textfield.TextInputLayout>
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Gender: "
-                android:textSize="20sp"
-                />
-
-            <RadioButton
-                android:id="@+id/malebtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Male"
-                android:layout_marginLeft="10dp"
-                android:textSize="20sp"/>
-            <RadioButton
-                android:id="@+id/femalebtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Female"
-                android:layout_marginLeft="10dp"
-
-                android:textSize="20sp"/>
-        </RadioGroup>
 
         <Button
             android:id="@+id/sign_up_btn"

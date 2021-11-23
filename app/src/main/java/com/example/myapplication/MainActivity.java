@@ -142,11 +142,6 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             }
                         });
-
-
-                Intent mainIntent = new Intent(MainActivity.this,HomePage.class);
-                startActivity(mainIntent);
-                finish();
             }else {
                 Toast.makeText(MainActivity.this,"Incorrect email and password",Toast.LENGTH_SHORT).show();
             }

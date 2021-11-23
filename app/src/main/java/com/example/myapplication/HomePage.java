@@ -42,8 +42,8 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     private DrawerLayout mDrawerlayout;
     NavigationView navigationView;
     private ActionBarDrawerToggle Toggle;
-    int [] image={R.drawable.newrailway,R.drawable.newairway,R.drawable.newlocal};
-    String [] name={"Railways","Airport","Locale"};
+    int [] image={R.drawable.newlocal};
+    String [] name={"Locale"};
     TextView SignoutBtn;
     FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
